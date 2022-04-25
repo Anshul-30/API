@@ -22,7 +22,8 @@ export default function Login({ navigation }) {
             device_type: Platform.OS == 'ios' ? 'IOS' : 'ANDROID',
             password: pass
         }
-        dispatch(login1(apiData))
+        dispatch(login({phone,pass}))
+        navigation.navigate(navigationString.SIGNUP)
     }
     return (
 

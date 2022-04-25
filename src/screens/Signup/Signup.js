@@ -24,6 +24,7 @@ export default function Signup({ navigation }) {
 const dispatch = useDispatch()
 
 const onSign = async () => {
+  console.log("fna",fName)
   let apiData = {
     first_name: fName,
     last_name: lName,
@@ -34,11 +35,19 @@ const onSign = async () => {
     device_token: 'KDKFJDKFDFKDFDF',
     device_type: Platform.OS == 'ios' ? 'IOS' : 'ANDROID',
     password: pass
+    
   }
-
-  dispatch(signUp(apiData))
-  alert("sign in ")
-  navigation.navigate(navigationString.LOGIN)
+  try {
+    const res = await dispatch(signUp(apiData))
+    console.log("singnup api res_+++++", res)
+    alert("User signup successfully....!!!")
+} catch (error) {
+    console.log("error raised", error)
+    alert(error?.message)
+}
+  // dispatch(signUp(apiData))
+  // alert("sign in ")
+  // navigation.navigate(navigationString.LOGIN)
 }
 return (
   <View>

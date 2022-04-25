@@ -1,7 +1,7 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import store from '../redux/store';
-import types from '../redux/types';
+import store from '../Redux/store'
+import types from '../Redux/types'
 
 const { dispatch, getState } = store;
 
@@ -63,10 +63,10 @@ console.log("methods",method)
 					clearLoginUser();	
 					// NavigationService.resetNavigation();
 					//NavigationService.navigate('loginUsingEmailScreen');
-					dispatch({
-						type: types.CLEAR_REDUX_STATE,
-						payload: {}
-					});
+					// dispatch({
+					// 	type: types.CLEAR_REDUX_STATE,
+					// 	payload: {}
+					// });
 					dispatch({
 						type: types.NO_INTERNET,
 						payload: { internetConnection: true },
