@@ -8,7 +8,6 @@ const Login =(state = initialState,action)=>{
         case types.LOGIN:{
                 const data = action.payload
                 console.log(data)
-                
                 return{
                     userdata:data
                 }

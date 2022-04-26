@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Text, SafeAreaView, View, StatusBar } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import { useDispatch } from 'react-redux'
-
+import actions from '../../Redux/actions'
 import TextInputComponent from '../../components/TextInput'
 import navigationString from '../../navigation/navigationString'
 import { login, login1 } from '../../Redux/actions/auth'
@@ -22,8 +22,9 @@ export default function Login({ navigation }) {
             device_type: Platform.OS == 'ios' ? 'IOS' : 'ANDROID',
             password: pass
         }
-        dispatch(login({phone,pass}))
-        navigation.navigate(navigationString.SIGNUP)
+        actions.login(apiData)
+        navigation.navigate(navigationString.HOME)
+      
     }
     return (
 
